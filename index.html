@@ -114,6 +114,21 @@
 </head>
 <body class="bg-primary text-body">
 
+    <!-- Google Translate Element -->
+    <div id="google_translate_element_container" class="pt-2 pb-1 px-4 text-sm bg-secondary text-right">
+        <div id="google_translate_element"></div>
+    </div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en', // Default page language
+                includedLanguages: 'en,hi,gu', // English, Hindi, Gujarati
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE // Compact dropdown
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <!-- Header & Navigation -->
     <header class="sticky top-0 z-50 bg-primary/80 backdrop-blur-sm shadow-md">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
@@ -354,18 +369,18 @@
                     <h4 class="text-xl font-semibold text-header mb-3">Vishal Banquet Hall (Bodhgaya)</h4>
                     <p class="text-body mb-2"><strong>Address:</strong> Vishal Banquet Hall, Gaya-Dobhi Rd, Musatpura, Bihar 823004</p>
                     <p class="text-body mb-2"><strong>Mobile Number:</strong> 9228105245</p>
-                    <p class="text-body"><strong>Website:</strong> <a href="https://vishalbanquethall1.github.io/" target="_blank" class="text-accent hover:underline">vishalbanquethall1.github.io</a></p>
+                    <p class="text-body"><strong>Website:</strong> <a href="https://vishalbanquethall1.github.io/" target="_blank" class="text-accent hover:underline">https://vishalbanquethall1.github.io/</a></p>
                 </div>
                 <div class="bg-secondary p-6 rounded-lg shadow-md">
                     <h4 class="text-xl font-semibold text-header mb-3">Vishal Hospital (Bodhgaya)</h4>
                     <p class="text-body mb-2"><strong>Address:</strong> Vishal Hospital, Gaya-Dobhi Rd, Musatpura, Bihar 823004</p>
                     <p class="text-body mb-2"><strong>Mobile Number:</strong> 9228105245</p>
-                    <p class="text-body"><strong>Website:</strong> <a href="https://vishalhospitalrajkot.github.io/vishalhospitalbodhgaya/" target="_blank" class="text-accent hover:underline">vishalhospitalrajkot.github.io/vishalhospitalbodhgaya/</a></p>
+                    <p class="text-body"><strong>Website:</strong> <a href="https://vishalhospitalrajkot.github.io/vishalhospitalbodhgaya/" target="_blank" class="text-accent hover:underline">https://vishalhospitalrajkot.github.io/vishalhospitalbodhgaya/</a></p>
                 </div>
                 <div class="bg-secondary p-6 rounded-lg shadow-md">
                     <h4 class="text-xl font-semibold text-header mb-3">Dr. Anoop Lal Sinha</h4>
                     <p class="text-body mb-2"><strong>Mobile Number:</strong> 9228105245</p>
-                    <p class="text-body"><strong>Website:</strong> <a href="https://vishalhospitalrajkot.github.io/Dr.AnoopLalSinha/" target="_blank" class="text-accent hover:underline">vishalhospitalrajkot.github.io/Dr.AnoopLalSinha/</a></p>
+                    <p class="text-body"><strong>Website:</strong> <a href="https://vishalhospitalrajkot.github.io/Dr.AnoopLalSinha/" target="_blank" class="text-accent hover:underline">https://vishalhospitalrajkot.github.io/Dr.AnoopLalSinha/</a></p>
                 </div>
             </div>
         </section>
@@ -383,7 +398,7 @@
 
             const db = {
                 timeline: [
-                    { year: "c. 528 BCE", title: "The Enlightenment", text: "Around 528 BCE, Prince Siddhartha Gautama meditated for 49 days under the Bodhi tree (Ficus religiosa) in Bodhgaya (ancient Uruvela). Here, he defeated the demon Mara, attained profound enlightenment (Bodhi), and became the Buddha. He then spent seven weeks in the vicinity before traveling to Sarnath to deliver his first teachings. This event established Bodhgaya as the single holiest site in Buddhism, one of the four main Buddhist pilgrimage places (alongside Lumbini, Sarnath, and Kushinagar). Spiritual leaders like Lama Zopa Rinpoche emphasize its power for 'unbelievable purification and merit accumulation'." },
+                    { year: "c. 528 BCE", title: "The Enlightenment", text: "Around 528 BCE, Prince Siddhartha Gautama meditated for 49 days under the Bodhi tree (Ficus religiosa) in Bodhgaya (ancient Uruvela). Here, he defeated the demon Mara, attained profound enlightenment (Bodhi), and became the Buddha. He then spent seven weeks in the vicinity before traveling to Sarnath to deliver his first teachings. This event established Bodhgaya as the single holiest site in Buddhism, one of the four main Buddhist pilgrimage places (alongside Lumbini, Sarnath, and Kushinagar). Spiritual leaders like Lama Zopa Rinpense emphasize its power for 'unbelievable purification and merit accumulation'." },
                     { year: "3rd c. BCE", title: "Emperor Ashoka's Patronage & Early Shrines", text: "Around 250 BCE, the devout Mauryan Emperor Ashoka visited Bodhgaya, reportedly building the first shrine and stone railings around the Bodhi tree. Archaeological efforts (late 19th c. ASI digs) revealed evidence of his early shrine and brick flooring. The polished sandstone 'Diamond Throne' (Vajrasana), marking the exact spot of Buddha's meditation seat, was installed during his reign. The original Bodhi tree was destroyed multiple times but replanted using saplings from its descendants." },
                     { year: "5th–6th C. CE", title: "Mahabodhi Temple Construction & Architectural Legacy", text: "The current Mahabodhi Temple, a magnificent 54-meter brick pyramid tower, was constructed during the Gupta period (5th–6th century CE). It is one of India's oldest surviving brick Buddhist shrines and deeply influenced later temple architecture. It houses a 1,700-year-old gilded Buddha statue in bhumisparsha mudra (earth-touching pose). Surrounding shrines commemorate Buddha's post-enlightenment weeks." },
                     { year: "7th Century CE", title: "Pilgrim Xuanzang's Visit", text: "The renowned Chinese pilgrim Xuanzang visited Bodhgaya, leaving detailed accounts of the thriving Buddhist civilization and the temple complex. His records provide invaluable historical insights into the site's importance and active monastic life during that period." },
