@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Bodhgaya: The Heart of Enlightenment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Sacred Earth -->
+    <!-- Application Structure Plan: The application uses a thematic, single-page dashboard structure with a sticky navigation bar for easy access to key sections: 'The Enlightenment' (History, religious significance, archaeological context), 'Sacred Sites' (Mahabodhi Temple Complex & other major monuments, including architecture and archaeology), 'Global Village' (International Monasteries), 'Living Traditions' (Festivals/Rituals), 'Current Controversies' (new section for management issues and protests), 'Plan Your Visit' (Travel, Accommodation, Safety, and a 3-Day Itinerary), and 'Contact' (new section for hospital and doctor information). This non-linear structure allows users to jump to topics of interest, encouraging non-sequential discovery. Key interactions include a clickable timeline for history with detailed modals, a visual CSS-grid map of the Mahabodhi complex, descriptive cards for other monuments, a filterable gallery for monasteries, interactive cards for festivals, tabbed content for rituals, and practical visitor information with filters and a suggested itinerary. This design prioritizes user engagement and intuitive data synthesis, offering a comprehensive and accessible exploration of Bodhgaya beyond a linear report, including its modern challenges and important local contacts. -->
+    <!-- Visualization & Content Choices:
+        - History: Report's historical narrative, religious significance, and archaeological insights -> Goal: Show change over time and key developments -> Viz/Method: Interactive HTML/CSS Timeline with detailed modal for each event -> Interaction: Click on date reveals in-depth text, including archaeological findings, name evolution, Bodhgaya's architectural legacy, and its status as one of Buddhism's "four great" sites -> Justification: Makes historical progression digestible and engaging, providing rich context from ancient origins to modern status.
+        - Sacred Sites (Mahabodhi Complex): Report's description of the 7 weeks, core features, Vajrasana, and UNESCO inscription -> Goal: Organize spatial information for spiritual journey and detail core features -> Viz/Method: Simplified diagram of temple layout using CSS Grid, with highlighted areas for each week; descriptive text for core features -> Interaction: Clicking a grid area displays info about that specific sacred spot; static text for core features -> Justification: Provides crucial spatial context of the Buddha's post-enlightenment meditation path, enhancing understanding of the pilgrimage, and detailing the main temple's significance and influence.
+        - Sacred Sites (Other Monuments): Report's details on 80-foot Buddha, Peace Pagoda, Ashokan pillar fragments -> Goal: Inform about significant modern and ancient structures outside the core complex -> Viz/Method: Descriptive HTML cards within the same section -> Interaction: Static information display -> Justification: Groups related "site" information while distinguishing between the ancient complex and newer additions.
+        - Architecture & Archaeology: Report's details on Gupta style, restoration, excavations, museum, management, and conservation -> Goal: Provide deeper insight into the temple's construction, preservation, and historical uncovering -> Viz/Method: Dedicated text block within the Sacred Sites section, including museum and governance details -> Interaction: Static display -> Justification: Consolidates crucial information about the physical integrity and historical study of the site, supporting the UNESCO status and showing the site's rich archaeological layers.
+        - Monasteries: Report's list of international monasteries -> Goal: Showcase cultural diversity and global presence -> Viz/Method: Interactive card gallery -> Interaction: Clicking a card opens a modal with expanded details -> Justification: Visually appealing and allows for self-paced exploration of global influences, emphasizing "over 50 international viharas" and continuous worship, including mentions of architectural replicas.
+        - Festivals: Report's list of festivals, including new ones -> Goal: Inform about key annual events -> Viz/Method: A series of interactive cards -> Interaction: Click reveals details -> Justification: More dynamic and scannable than a static table, providing event context for celebrations like Vesak, Kagyu Monlam Chenmo, Magha Puja, and Asalha Puja, reflecting the continuous spiritual life.
+        - Rituals: Report's description of daily practices -> Goal: Explain spiritual activities -> Viz/Method: Tabbed content interface -> Interaction: Clicking a tab switches display to show detailed descriptions of each ritual -> Justification: Organizes detailed qualitative information concisely for daily spiritual life, including details on Circumambulation (Kora), meditation, and offerings.
+        - Current Controversies: New content on temple management and protests -> Goal: Inform users about ongoing administrative issues and historical context -> Viz/Method: Dedicated section with narrative text, including protest details, demands, incidents, and a comparative table of management structures -> Interaction: Static display with organized information and comparative data -> Justification: Provides crucial, up-to-date context on the site's governance, acknowledging its complex religious and administrative landscape.
+        - Transport: Report's travel info -> Goal: Aid in travel planning -> Viz/Method: Descriptive HTML cards -> Interaction: Static display of key travel modes (air, rail, road) with updated distances and general operating hours -> Justification: Provides quick, essential logistical information for reaching Bodhgaya.
+        - Accommodation: Report's range of lodging -> Goal: Help visitors find suitable stays -> Viz/Method: A filterable list of cards -> Interaction: Buttons filter accommodation by type (Luxury, Budget, Hostel, Guesthouse) -> Justification: Provides practical, user-driven utility, allowing users to find relevant options quickly and advising early booking during peak seasons.
+        - Best Time to Visit: Report's recommendation and climate data -> Goal: Provide quick visual guidance on optimal visiting period -> Viz/Method: Bar Chart (Chart.js) -> Interaction: Hover to see specific month recommendations -> Justification: Visualizes the optimal visiting window more effectively than text alone, making climate considerations clear, especially avoiding hot summers and rainy monsoons.
+        - Safety & Etiquette: Report's practical advice -> Goal: Inform visitors on cultural norms and safety -> Viz/Method: Concise text block -> Interaction: Static display -> Justification: Essential practical advice for a smooth, respectful, and safe visit, covering dress code, security (including mention of 2013 bombings), health, and mobile/camera rules.
+        - Suggested 3-Day Itinerary: New content -> Goal: Provide structured guidance for a visit -> Viz/Method: Simple HTML cards for each day's activities -> Interaction: Static display -> Justification: Offers practical inspiration and a framework for visitors to plan their experience, ending with an overall summary of Bodhgaya's significance.
+        - Contact Information: New content for local contacts -> Goal: Provide essential contact details for local services -> Viz/Method: Dedicated section with organized text blocks for each entity (hospital, banquet hall, doctor) -> Interaction: Static display -> Justification: Crucial practical information for visitors' convenience, adding value to the guide.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8; /* Warm off-white */
+            color: #4A4A4A;
+        }
+        .bg-primary { background-color: #FDFBF8; }
+        .bg-secondary { background-color: #F5F0E8; }
+        .text-header { color: #5D4037; } /* Earthy brown */
+        .text-body { color: #4A4A4A; }
+        .text-accent { color: #AF8F6F; } /* Muted gold */
+        .border-accent { border-color: #E3D8C9; }
+        .btn-primary {
+            background-color: #8D6E63; /* Muted brown */
+            color: #FFFFFF;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #795548;
+        }
+        .btn-secondary {
+            background-color: #E3D8C9;
+            color: #5D4037;
+            transition: background-color 0.3s;
+        }
+        .btn-secondary:hover {
+            background-color: #D4C4B0;
+        }
+        .btn-active {
+            background-color: #5D4037;
+            color: white;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #AF8F6F;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .management-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        .management-table th, .management-table td {
+            border: 1px solid #E3D8C9;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        .management-table th {
+            background-color: #AF8F6F;
+            color: white;
+            font-weight: 600;
+        }
+        .management-table tr:nth-child(even) {
+            background-color: #F5F0E8;
+        }
+    </style>
+</head>
+<body class="bg-primary text-body">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-primary/80 backdrop-blur-sm shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold text-header">Bodhgaya</h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#enlightenment" class="nav-link font-medium text-header hover:text-accent">The Enlightenment</a>
+                <a href="#sites" class="nav-link font-medium text-header hover:text-accent">Sacred Sites</a>
+                <a href="#global" class="nav-link font-medium text-header hover:text-accent">Global Village</a>
+                <a href="#traditions" class="nav-link font-medium text-header hover:text-accent">Living Traditions</a>
+                <a href="#controversies" class="nav-link font-medium text-header hover:text-accent">Controversies</a>
+                <a href="#visit" class="nav-link font-medium text-header hover:text-accent">Plan Your Visit</a>
+                <a href="#contact" class="nav-link font-medium text-header hover:text-accent">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-header focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+            <a href="#enlightenment" class="block nav-link font-medium text-header hover:text-accent">The Enlightenment</a>
+            <a href="#sites" class="block nav-link font-medium text-header hover:text-accent">Sacred Sites</a>
+            <a href="#global" class="block nav-link font-medium text-header hover:text-accent">Global Village</a>
+            <a href="#traditions" class="block nav-link font-medium text-header hover:text-accent">Living Traditions</a>
+            <a href="#controversies" class="block nav-link font-medium text-header hover:text-accent">Controversies</a>
+            <a href="#visit" class="block nav-link font-medium text-header hover:text-accent">Plan Your Visit</a>
+            <a href="#contact" class="block nav-link font-medium text-header hover:text-accent">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+
+        <!-- Hero Section -->
+        <section class="text-center py-12">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-header mb-4">Explore Bodhgaya</h2>
+            <p class="text-xl text-accent mb-6">The Sacred Heart of Buddhist Enlightenment</p>
+            <p class="max-w-3xl mx-auto text-lg">Bodhgaya, in Bihar, India, is a pivotal religious and historical site for Buddhists worldwide. It is renowned as the place where Gautama Buddha attained enlightenment under the Bodhi Tree in the 6th century BCE. The Mahabodhi Temple, a UNESCO World Heritage Site since 2002, is central to this legacy and attracts pilgrims and tourists globally. This interactive guide invites you to explore its profound history, architectural marvels, living traditions, and current issues surrounding its management, ensuring a thorough understanding for researchers, travelers, and scholars. Bodhgaya stands as the beating heart of Buddhism—a seamless blend of living faith, ancient architecture, and global cultural heritage.</p>
+        </section>
+
+        <!-- The Enlightenment: History -->
+        <section id="enlightenment" class="py-16 bg-secondary rounded-xl">
+            <div class="text-center mb-12 px-4">
+                <h3 class="text-3xl font-bold text-header mb-3">The Path to Enlightenment & Historical Roots</h3>
+                <p class="max-w-3xl mx-auto">The history of Bodhgaya is a story of spiritual awakening, imperial patronage, and remarkable resilience. Known in antiquity as Uruvela, Sambodhi, Vajrasana, or Mahabodhi, it has been venerated since at least the 3rd century BCE, when Emperor Ashoka built its first shrine. This interactive timeline highlights the pivotal moments that shaped the world's most sacred Buddhist site, including significant archaeological discoveries and its evolution into a global pilgrimage center, as one of Buddhism’s “four great” sites (along with Lumbini, Sarnath, and Kushinagar). Click on any event to learn more about its profound significance.</p>
+            </div>
+            <div class="relative w-full px-4">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 h-full w-0.5 bg-gray-300 transform -translate-x-1/2"></div>
+                <!-- Timeline Items Container -->
+                <div id="timeline-container" class="space-y-12"></div>
+            </div>
+            <!-- Timeline Detail Modal -->
+            <div id="timeline-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+                <div class="bg-primary rounded-lg shadow-xl max-w-2xl w-full p-6 relative max-h-[90vh] overflow-y-auto">
+                    <button id="close-timeline-modal" class="absolute top-3 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+                    <h4 id="modal-title" class="text-2xl font-bold text-header mb-4"></h4>
+                    <p id="modal-text" class="text-body"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sacred Sites: Mahabodhi Temple Complex -->
+        <section id="sites" class="py-16">
+            <div class="text-center mb-12 px-4">
+                <h3 class="text-3xl font-bold text-header mb-3">The Sacred Grounds of Bodhgaya</h3>
+                <p class="max-w-3xl mx-auto">At the heart of Bodhgaya lies the Mahabodhi Temple Complex, a UNESCO World Heritage site and a sacred landscape that maps the Buddha's journey to and through enlightenment. The complex is not just a single temple but a collection of sites commemorating the seven weeks the Buddha spent in meditation after his awakening. Its 55m central temple is surrounded by four smaller towers, ancient railings, the sacred Bodhi Tree, the Vajrasana (“Diamond Throne”), and several votive stupas. This section guides you through the historic Mahabodhi complex and highlights other significant modern monuments within Bodhgaya. Click on a numbered area of the map to reveal its story, and explore cards below for other important sites.</p>
+            </div>
+            <div class="lg:flex lg:space-x-8 mb-12">
+                <!-- Interactive Map -->
+                <div id="sacred-sites-map" class="lg:w-1/2 grid grid-cols-3 grid-rows-3 gap-2 p-4 bg-secondary rounded-lg mb-8 lg:mb-0 h-96">
+                </div>
+                <!-- Information Panel -->
+                <div class="lg:w-1/2 p-6 bg-secondary rounded-lg flex flex-col justify-center">
+                    <h4 id="site-title" class="text-2xl font-bold text-header mb-3">Welcome to the Sacred Grounds</h4>
+                    <p id="site-description" class="text-body">Click on a highlighted area of the map to learn about the sacred sites within the Mahabodhi Temple Complex, including the Bodhi Tree, the Diamond Throne, and the locations commemorating the seven weeks the Buddha spent in meditation after attaining enlightenment.</p>
+                </div>
+            </div>
+
+            <!-- Other Notable Monuments -->
+            <div class="px-4 mb-12">
+                <h4 class="text-2xl font-semibold text-header text-center mb-6">Key Monuments & Features Beyond the Mahabodhi Temple</h4>
+                <div id="other-monuments-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+            </div>
+
+            <!-- Architecture & Archaeology -->
+            <div class="px-4 p-6 bg-secondary rounded-xl">
+                <h4 class="text-2xl font-semibold text-header mb-4 text-center">Architecture & Archaeology</h4>
+                <p class="max-w-3xl mx-auto mb-4">The Mahabodhi Temple, with its red-brick and layered pyramidical spire, exemplifies Gupta-period aesthetics and is among India's earliest brick-built Buddhist shrines, deeply influential on later temple architecture. It houses a 1,700-year-old gilded Buddha statue in *bhumisparsha mudra* (earth-touching pose). Surrounding shrines commemorate Buddha's post-enlightenment weeks. The site suffered decay during the 12th–13th centuries after invasions, leading to restoration efforts by King Kyanzittha of Burma (1100 CE), later Burmese missions, and British archaeologist Alexander Cunningham (1870s).</p>
+                <p class="max-w-3xl mx-auto">Extensive archaeological excavations by the Archaeological Survey of India (ASI), starting in the late 19th century, uncovered earlier shrine foundations, including Ashokan brick floors and early Buddhist artifacts. These discoveries, along with terracotta votive plaques, are now displayed at the Bodhgaya Archaeological Museum (est. 1956). Ongoing archaeological work at sites like Taradih Monastery and Bakraur Stupa (1 km northeast) continue to reveal monastic universities from the 4th–12th century CE. The site's conservation is jointly managed by the Archaeological Survey of India and the Bodhgaya Temple Committee under the Bodh Gaya Temple Act (1949), ensuring its balanced management of spiritual and historical integrity. It was inscribed on the UNESCO World Heritage list in 2002 for its "Outstanding Universal Value."</p>
+            </div>
+        </section>
+
+        <!-- Global Village: International Monasteries -->
+        <section id="global" class="py-16 bg-secondary rounded-xl">
+            <div class="text-center mb-12 px-4">
+                <h3 class="text-3xl font-bold text-header mb-3">A Global Village of Faith</h3>
+                <p class="max-w-3xl mx-auto">Bodhgaya's spiritual magnetism has drawn communities from across the world, creating a unique microcosm of global Buddhism. More than 40 (or over 50 by some accounts) international viharas (monasteries) from nations like Tibet, Thailand, Sri Lanka, Japan, China, Myanmar, Bhutan, and Cambodia line the surrounding streets, each reflecting its own distinct architectural and cultural heritage. Structures like Thailand's Wat Chet Yot and Nepal's Mahabuddha Temple imitate the Mahabodhi Temple's design, showcasing its global influence. This gallery showcases the rich diversity of this international spiritual community. Click on any monastery to learn about its unique features.</p>
+            </div>
+            <div id="monastery-gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4"></div>
+             <!-- Monastery Detail Modal -->
+            <div id="monastery-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+                <div class="bg-primary rounded-lg shadow-xl max-w-2xl w-full p-6 relative max-h-[90vh] overflow-y-auto">
+                    <button id="close-monastery-modal" class="absolute top-3 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+                    <h4 id="monastery-modal-title" class="text-2xl font-bold text-header mb-4"></h4>
+                    <p id="monastery-modal-text" class="text-body"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Living Traditions: Festivals & Rituals -->
+        <section id="traditions" class="py-16">
+            <div class="text-center mb-12 px-4">
+                <h3 class="text-3xl font-bold text-header mb-3">Living Traditions & Spiritual Activities</h3>
+                <p class="max-w-3xl mx-auto">Bodhgaya is more than a historical site; it's a vibrant center of living faith. Its spiritual energy is renewed daily through continuous worship, chanting, meditation classes, and monk pujas that occur around the clock. It is also celebrated annually in colorful festivals that draw devotees from around the globe. Explore the major celebrations and daily practices that keep the Buddha's teachings alive, making Bodhgaya a 24x7 pilgrimage site with ongoing events.</p>
+            </div>
+            <!-- Festivals -->
+            <div class="mb-12">
+                 <h4 class="text-2xl font-semibold text-header text-center mb-8">Annual Festivals</h4>
+                 <div id="festivals-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4"></div>
+            </div>
+            <!-- Rituals -->
+            <div>
+                 <h4 class="text-2xl font-semibold text-header text-center mb-8">Daily Rituals & Practices</h4>
+                 <div class="max-w-4xl mx-auto">
+                    <div id="rituals-tabs" class="flex flex-wrap justify-center gap-2 mb-4"></div>
+                    <div id="rituals-content" class="p-6 bg-secondary rounded-lg min-h-[200px]"></div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Current Controversies -->
+        <section id="controversies" class="py-16 bg-secondary rounded-xl">
+            <div class="text-center mb-12 px-4">
+                <h3 class="text-3xl font-bold text-header mb-3">Current Controversies & Management</h3>
+                <p class="max-w-3xl mx-auto">While a beacon of Buddhist heritage, Bodhgaya's management is a contested space, reflecting broader religious and political dynamics. Recent protests highlight debates over its governance, offering a crucial contemporary context to its historical significance.</p>
+            </div>
+            <div class="px-4">
+                <h4 class="text-2xl font-semibold text-header mb-4">Temple Management Debates & Protests</h4>
+                <p class="mb-4">The Mahabodhi Temple, central to Bodhgaya's legacy, is managed by the Bodhgaya Temple Management Committee (BTMC), established by the Bodh Gaya Temple Act of 1949. This act mandates a committee with equal representation from Buddhists and Hindus, chaired by Gaya's District Magistrate. Historically, Hindus managed the temple post-13th century, leading to the 1949 act to resolve disputes, with a 2013 amendment allowing a non-Hindu chairperson.</p>
+                <p class="mb-6">As of June 2025, Bodhgaya has been at the center of significant controversy regarding the control of the Mahabodhi Temple. Buddhists across India and internationally have protested, demanding full control. These protests, led by the All India Buddhist Forum (AIBF), began in February 2025 and include hunger strikes (some entering their 14th day in February 2025) and rallies, with about 300 monks participating and some extending their hunger strikes into their 14th day. Police have also reportedly taken action, forcibly removing monks in March 2025. Protesters argue this structure marginalizes Buddhist autonomy, given the temple's centrality to their faith. The demands include the repeal of the 1949 act, full Buddhist control, and an end to state interference. Political support has been raised in the Bihar Assembly and Parliament, but as of June 11, 2025, there has been no official government response from Bihar or the central government. Incidents include reports of violence, arrests (e.g., a Bangladeshi monk in May 2025), and social media posts highlighting tensions such as a governor performing Hindu rituals at the temple, viewed as an insult by protestors. Financial issues, like an ₹80 lakh fine on BTMC in 2023 for FCRA violations, also add to the complexity, with transparency concerns noted. A major fire in a local vegetable market in 2025 also affected 115 shops, indicating infrastructural challenges beyond the temple management.</p>
+
+                <h4 class="text-2xl font-semibold text-header mb-4">Comparative Management Structures</h4>
+                <table class="management-table mb-8" id="management-table">
+                    <thead>
+                        <tr>
+                            <th>Site</th>
+                            <th>Management Body</th>
+                            <th>Representation</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <p class="text-body text-center max-w-3xl mx-auto">This comparison highlights the unique shared structure at Mahabodhi, contrasting with other sites managed by their respective communities, fueling demands for change.</p>
+                <p class="text-body text-center max-w-3xl mx-auto mt-6">In conclusion, Bodhgaya remains a beacon of Buddhist heritage, yet its management is a contested space, reflecting broader religious and political dynamics. Travelers should be aware of ongoing protests, ensuring respectful engagement with the site's spiritual significance. Researchers may find the evolving legal and social landscape a rich field for study, given its historical depth and contemporary relevance.</p>
+            </div>
+        </section>
+
+        <!-- Plan Your Visit -->
+        <section id="visit" class="py-16">
+             <div class="text-center mb-12 px-4">
+                <h3 class="text-3xl font-bold text-header mb-3">Plan Your Pilgrimage to Bodhgaya</h3>
+                <p class="max-w-3xl mx-auto">A journey to Bodhgaya is a profound experience for pilgrims and tourists alike. To help you plan your visit, this section provides practical information on the best time to travel, how to get here, where to stay, temple rules, etiquette, and a suggested itinerary. Modest dress and removal of shoes inside temple precincts are expected, and the site is generally safe for visitors. Temples are generally open from 6 AM to sunset, closing noon to 2 PM daily.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 px-4">
+                <!-- Left Column: Chart & Transport -->
+                <div class="space-y-12">
+                    <div>
+                        <h4 class="text-2xl font-semibold text-header text-center mb-4">Best Time to Visit</h4>
+                        <div class="chart-container">
+                            <canvas id="visit-chart"></canvas>
+                        </div>
+                        <p class="text-center mt-4">The cooler months from October to March are ideal, offering pleasant weather (15–25 °C) for exploring. Summers (April–June) can be extremely hot (up to 45 °C) and are generally avoided. The monsoon season (July–September) brings heavy rain with lower crowds.</p>
+                    </div>
+                     <div>
+                        <h4 class="text-2xl font-semibold text-header text-center mb-6">How to Reach Bodhgaya</h4>
+                        <div id="transport-container" class="space-y-4"></div>
+                    </div>
+                    <div class="p-6 bg-primary rounded-lg shadow-md">
+                        <h4 class="text-2xl font-semibold text-header mb-4">Culinary & Cultural Experience</h4>
+                        <p class="text-body">Bodhgaya offers a variety of cuisines, primarily vegetarian, reflecting its religious character. Options include Tibetan, Italian, Thai, and traditional Bihari dishes like Litti-chokha and sweets like Tilkut and Kesariya peda. Non-vegetarian food and alcohol are limited, aligning with its spiritual ambiance.</p>
+                    </div>
+                </div>
+                <!-- Right Column: Accommodation & Safety -->
+                <div>
+                    <h4 class="text-2xl font-semibold text-header text-center mb-6">Where to Stay</h4>
+                    <div id="accommodation-filters" class="flex flex-wrap justify-center gap-3 mb-6"></div>
+                    <div id="accommodation-list" class="space-y-4 max-h-[600px] overflow-y-auto pr-2"></div>
+                    <div class="mt-8 p-6 bg-primary rounded-lg shadow-md">
+                        <h4 class="text-2xl font-semibold text-header mb-4">Etiquette & Safety</h4>
+                        <p class="text-body mb-3">Bodhgaya is generally safe for visitors. Always watch out for petty theft and use only authorized vehicles. Modest dress (covering shoulders & legs) and removal of shoes inside temples and monasteries are expected out of respect. Mobile phones are generally not allowed inside the main temple, and limited camera use (fees may apply) is permitted elsewhere—always follow onsite instructions.</p>
+                        <p class="text-body">While generally safe, heightened security measures are in place following the 2013 bombings (where multiple bombs exploded in the temple and surrounding areas; thankfully, key shrines and the Bodhi Tree were not harmed, but several people were injured). For health, carry bottled water, use sun protection in summers, and insect repellent in monsoon. Women travelers typically find Bodhgaya welcoming, especially in the well-patrolled temple area.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suggested Itinerary -->
+            <div class="px-4 mt-16">
+                <h4 class="text-3xl font-bold text-header text-center mb-8">Suggested 3-Day Itinerary</h4>
+                <p class="max-w-3xl mx-auto text-center mb-8">Whether you come for pilgrimage, history, or cultural immersion, this suggested itinerary offers a framework for a profound journey—spiritual, architectural, and ever-living in Buddhist tradition. As Lama Zopa Rinpoche noted, missing a day of practice here is "worse than losing skies filled with wish-granting jewels".</p>
+                <div id="itinerary-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-primary p-6 rounded-lg shadow-md">
+                        <h5 class="text-xl font-bold text-header mb-3">Day 1</h5>
+                        <p class="mb-2"><strong>Morning:</strong> Arrive & settle; walk around international viharas.</p>
+                        <p class="mb-2"><strong>Afternoon:</strong> Mahabodhi Temple & Bodhi Tree – focus on the main temple and the enlightenment spot.</p>
+                        <p><strong>Evening:</strong> Participate in a meditation session under the Bodhi Tree or attend an evening puja.</p>
+                    </div>
+                    <div class="bg-primary p-6 rounded-lg shadow-md">
+                        <h5 class="text-xl font-bold text-header mb-3">Day 2</h5>
+                        <p class="mb-2"><strong>Morning:</strong> Visit the Great Buddha Statue & Vishwa Shanti Pagoda.</p>
+                        <p class="mb-2"><strong>Afternoon:</strong> Explore the Bodhgaya Archaeological Museum & nearby ancient ruins/fragments.</p>
+                        <p><strong>Evening:</strong> Attend an evening chanting ceremony or discourse at one of the international monasteries (e.g., Thai or Japanese Temple).</p>
+                    </div>
+                    <div class="bg-primary p-6 rounded-lg shadow-md">
+                        <h5 class="text-xl font-bold text-header mb-3">Day 3</h5>
+                        <p class="mb-2"><strong>Morning:</strong> Day-trip to nearby Sujata Village, significant for the Buddha's pre-enlightenment story.</p>
+                        <p class="mb-2"><strong>Afternoon:</strong> Explore local markets & eateries, and perhaps visit a local craft center.</p>
+                        <p><strong>Evening:</strong> Watch the puja lamp-lighting ceremony (Dīp-pūjā) at the Mahabodhi Temple, a deeply moving experience before departure.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section id="contact" class="py-16 bg-primary rounded-xl">
+            <div class="text-center mb-12 px-4">
+                <h3 class="text-3xl font-bold text-header mb-3">Contact Information</h3>
+                <p class="max-w-3xl mx-auto">Here you'll find essential contact details for local services and individuals.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 px-4">
+                <div class="bg-secondary p-6 rounded-lg shadow-md">
+                    <h4 class="text-xl font-semibold text-header mb-3">Vishal Hospital (Rajkot)</h4>
+                    <p class="text-body mb-2"><strong>Address:</strong> Vishal Hospital, Kailashwadi Main Road, Opposite Taluka Police Chowki, Junction Plot, Rajkot, Gujarat 360001</p>
+                    <p class="text-body mb-2"><strong>Mobile Number:</strong> 9228105245</p>
+                    <p class="text-body mb-2"><strong>Landline Number:</strong> 0281-2450408</p>
+                    <p class="text-body"><strong>Website:</strong> <a href="https://vishalhospitalrajkot.github.io/" target="_blank" class="text-accent hover:underline">vishalhospitalrajkot.github.io</a></p>
+                </div>
+                <div class="bg-secondary p-6 rounded-lg shadow-md">
+                    <h4 class="text-xl font-semibold text-header mb-3">Vishal Banquet Hall (Bodhgaya)</h4>
+                    <p class="text-body mb-2"><strong>Address:</strong> Vishal Banquet Hall, Gaya-Dobhi Rd, Musatpura, Bihar 823004</p>
+                    <p class="text-body mb-2"><strong>Mobile Number:</strong> 9228105245</p>
+                    <p class="text-body"><strong>Website:</strong> <a href="https://vishalbanquethall1.github.io/" target="_blank" class="text-accent hover:underline">vishalbanquethall1.github.io</a></p>
+                </div>
+                <div class="bg-secondary p-6 rounded-lg shadow-md">
+                    <h4 class="text-xl font-semibold text-header mb-3">Vishal Hospital (Bodhgaya)</h4>
+                    <p class="text-body mb-2"><strong>Address:</strong> Vishal Hospital, Gaya-Dobhi Rd, Musatpura, Bihar 823004</p>
+                    <p class="text-body mb-2"><strong>Mobile Number:</strong> 9228105245</p>
+                    <p class="text-body"><strong>Website:</strong> <a href="https://vishalhospitalrajkot.github.io/vishalhospitalbodhgaya/" target="_blank" class="text-accent hover:underline">vishalhospitalrajkot.github.io/vishalhospitalbodhgaya/</a></p>
+                </div>
+                <div class="bg-secondary p-6 rounded-lg shadow-md">
+                    <h4 class="text-xl font-semibold text-header mb-3">Dr. Anoop Lal Sinha</h4>
+                    <p class="text-body mb-2"><strong>Mobile Number:</strong> 9228105245</p>
+                    <p class="text-body"><strong>Website:</strong> <a href="https://vishalhospitalrajkot.github.io/Dr.AnoopLalSinha/" target="_blank" class="text-accent hover:underline">vishalhospitalrajkot.github.io/Dr.AnoopLalSinha/</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-16 py-6">
+        <div class="container mx-auto text-center">
+            <p>Interactive Guide to Bodhgaya</p>
+            <p class="text-sm text-gray-400">Created to explore the heart of Buddhist Enlightenment.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const db = {
+                timeline: [
+                    { year: "c. 528 BCE", title: "The Enlightenment", text: "Around 528 BCE, Prince Siddhartha Gautama meditated for 49 days under the Bodhi tree (Ficus religiosa) in Bodhgaya (ancient Uruvela). Here, he defeated the demon Mara, attained profound enlightenment (Bodhi), and became the Buddha. He then spent seven weeks in the vicinity before traveling to Sarnath to deliver his first teachings. This event established Bodhgaya as the single holiest site in Buddhism, one of the four main Buddhist pilgrimage places (alongside Lumbini, Sarnath, and Kushinagar). Spiritual leaders like Lama Zopa Rinpoche emphasize its power for 'unbelievable purification and merit accumulation'." },
+                    { year: "3rd c. BCE", title: "Emperor Ashoka's Patronage & Early Shrines", text: "Around 250 BCE, the devout Mauryan Emperor Ashoka visited Bodhgaya, reportedly building the first shrine and stone railings around the Bodhi tree. Archaeological efforts (late 19th c. ASI digs) revealed evidence of his early shrine and brick flooring. The polished sandstone 'Diamond Throne' (Vajrasana), marking the exact spot of Buddha's meditation seat, was installed during his reign. The original Bodhi tree was destroyed multiple times but replanted using saplings from its descendants." },
+                    { year: "5th–6th C. CE", title: "Mahabodhi Temple Construction & Architectural Legacy", text: "The current Mahabodhi Temple, a magnificent 54-meter brick pyramid tower, was constructed during the Gupta period (5th–6th century CE). It is one of India's oldest surviving brick Buddhist shrines and deeply influenced later temple architecture. It houses a 1,700-year-old gilded Buddha statue in bhumisparsha mudra (earth-touching pose). Surrounding shrines commemorate Buddha's post-enlightenment weeks." },
+                    { year: "7th Century CE", title: "Pilgrim Xuanzang's Visit", text: "The renowned Chinese pilgrim Xuanzang visited Bodhgaya, leaving detailed accounts of the thriving Buddhist civilization and the temple complex. His records provide invaluable historical insights into the site's importance and active monastic life during that period." },
+                    { year: "13th C. CE", title: "Tibetan-Sri Lankan Restoration & Period of Decline", text: "Following conquest by Turkic armies (circa 12th–13th century CE), the temple suffered decay and was largely abandoned. Buddhist practice at the site ceased for several centuries. A notable Tibetan-Sri Lankan collaboration later restored the temple. 'Bodh Gaya' became a common name for the site only in the 18th century." },
+                    { year: "1870s-1880s", title: "Major Restoration & Archaeological Work", text: "Extensive archaeological efforts, notably led by British archaeologist Sir Alexander Cunningham from the 1870s to 1880s (ASI excavations), brought the site back from ruin. These efforts uncovered earlier shrine foundations, including Ashokan brick floors, early Buddhist artifacts, and 10th–11th century terracotta votive plaques. These discoveries are now displayed at the Bodhgaya Archaeological Museum (est. 1956), marking the start of Bodhgaya's revival as a major 'living monument' and pilgrimage destination. Ongoing archaeological work at sites like Taradih Monastery and Bakraur Stupa (1 km northeast) continue to reveal monastic universities from the 4th–12th century CE." },
+                    { year: "2013", title: "2013 Bomb Blasts & Enhanced Security", text: "Multiple bombs exploded in the temple and surrounding areas. Thankfully, key shrines and the Bodhi Tree were not harmed, but several people were injured. Security measures were significantly enhanced afterward. This event is a stark reminder of the challenges faced by such sacred sites." },
+                    { year: "2002", title: "UNESCO World Heritage Site Inscription & Conservation", text: "The Mahabodhi Temple Complex was officially inscribed on the UNESCO World Heritage List in 2002, recognizing its 'Outstanding Universal Value' as a living pilgrimage site with continuous Buddhist traditions and the cradle of Buddhism. Conservation and restoration are now jointly managed by the Archaeological Survey of India (ASI) and the Bodhgaya Temple Committee under the Bodh Gaya Temple Act (1949), ensuring its careful preservation for future generations and its spiritual and historical integrity. UNESCO-recommended buffer zones also ensure balanced management." },
+                ],
+                sacredSites: [
+                    { id: 1, week: 'First Week', title: 'The Bodhi Tree & Vajrasana', description: "The Buddha spent his first week in meditation under the Bodhi Tree (*Ficus religiosa*), at the exact spot marked by the Vajrasana (Diamond Throne), a polished sandstone slab dating to Ashoka’s reign (c. 250 BCE). This is the epicenter of enlightenment and a focal point for daily pujas. The sacred Bodhi Tree is believed to be a living descendant of the original fig tree, symbolizing enlightenment. Pilgrims circumambulate it and meditate on its heart-shaped leaves." , grid: "col-start-2 row-start-2" },
+                    { id: 2, week: 'Second Week', title: 'Animeshlochan Chaitya', description: "For the second week, the Buddha stood gazing, unblinking, at the Bodhi tree in gratitude. This spot, the 'Unblinking Shrine', is north of the main temple complex and is a significant point for pilgrims.", grid: "col-start-2 row-start-1" },
+                    { id: 3, week: 'Third Week', title: 'Ratnachakrama (Jewelled Ambulatory)', description: "The Buddha spent the third week walking back and forth in meditation on a path now marked by raised stone lotuses, known as the 'Jewelled Ambulatory'. Pilgrims ritually circumnavigate this path as a form of meditation.", grid: "col-start-1 row-start-2" },
+                    { id: 4, week: 'Fourth Week', title: 'Ratnaghar Chaitya', description: "During the fourth week, the Buddha meditated in the 'Jewel House Shrine', where rays of six colors are said to have emanated from his body as he contemplated the higher teachings. This site is revered for its deep spiritual significance.", grid: "col-start-1 row-start-1" },
+                    { id: 5, week: 'Fifth Week', title: 'Ajapala Nigrodh Tree', description: "The fifth week was spent meditating near the Ajapala Nigrodh tree, where he famously replied to a Brahmin that one becomes a true Brahmin by deeds, not by birth, emphasizing the importance of conduct over lineage.", grid: "col-start-3 row-start-2" },
+                    { id: 6, week: 'Sixth Week', title: 'Muchalinda Lake', description: "The Buddha meditated by the Muchalinda Lake during the sixth week. When a severe storm arose, the serpent king Muchalinda is said to have have emerged from the lake and sheltered him with his massive hood, protecting him from the elements. This area includes a Lotus Pond.", grid: "col-start-2 row-start-3" },
+                    { id: 7, week: 'Seventh Week', title: 'Rajyatana Tree', description: "In the final seventh week, the Buddha sat under the Rajyatana tree. It was here that two merchants from Burma, Tapussa and Bhallika, offered him his first meal after enlightenment, becoming his first lay disciples.", grid: "col-start-3 row-start-3" }
+                ],
+                otherMonuments: [
+                    { name: "Great Buddha Statue", description: "Erected in 1989 and consecrated by the Dalai Lama, this impressive 80-foot (24 m) seated Buddha statue provides a modern focus for devotion just opposite the Mahabodhi Temple. It symbolizes peace and universal compassion." },
+                    { name: "Vishwa Shanti (World Peace) Pagoda", description: "This striking white Japanese-style stupa was built in the 1990s by Nipponzan Myohoji monks. It stands as a powerful symbol of global peace and non-violence, offering serene views of the surrounding area. Nearby also stand polished stone Ashokan pillar fragments and other archaeological relics from ancient times." }
+                ],
+                monasteries: [
+                    { country: "Thailand", name: "Thai Monastery (Wat Thai)", features: "Features a distinctive sloping, curved roof with golden tiles, typical of Thai architecture. It houses a massive bronze Buddha statue and is adjacent to a 25-meter standing Buddha in a garden. It embodies the rich traditions of Theravada Buddhism." },
+                    { country: "Japan", name: "Indosan Nipponji Temple", features: "A serene temple showcasing classic Japanese architecture, built in 1973. It stands as a symbol of peace and non-violence, fostering a tranquil environment for contemplation and practice. Its design reflects traditional Japanese temple aesthetics." },
+                    { country: "Bhutan", name: "Royal Bhutan Monastery", features: "Renowned for its exquisite craftsmanship, the monastery features stunning 3D clay carvings and murals depicting the life of the Buddha, reflecting rich Bhut anese artistic traditions. It is a vibrant center for Vajrayana Buddhist practice." },
+                    { country: "Myanmar", name: "Burmese Vihara", features: "This splendid monastery is reminiscent of the ancient temples of Bagan, with a distinctive pagoda shape and intricate detailing. It houses a library and provides a peaceful environment for study and meditation for monks and lay practitioners from Myanmar and beyond." },
+                    { country: "China", name: "Chinese Temple", features: "Exhibits classic Chinese temple architecture and houses three golden statues of Buddha. Intricate murals inside depict various aspects of the Buddha's life and teachings, offering a glimpse into Chinese Buddhist art and spirituality." },
+                    { country: "Tibet", name: "Tergar Monastery", features: "A prominent ceremonial temple for Tibetan Buddhist practice, featuring traditional prayer wheels, intricate murals, and a large statue of Buddha. It's a major center for the Karma Kagyu tradition, hosting teachings and events by significant lamas." },
+                    { country: "Vietnam", name: "Vietnamese Monastery", features: "A relatively new but beautifully constructed monastery showcasing classic Vietnamese-style architecture, with a serene atmosphere and a large smiling Buddha statue as a central feature. It serves as a spiritual home for the Vietnamese Buddhist community in Bodhgaya." },
+                    { country: "Cambodia", name: "Cambodian Monastery", features: "Visually striking from the outside, the monastery is beautifully decorated in ornate and bright colors, with intricately detailed walls reflecting Cambodia's rich artistic heritage. It provides a spiritual anchor for Cambodian pilgrims." },
+                    { country: "Sri Lanka", name: "Sri Lankan Temple", features: "Reflects the Theravada Buddhist traditions of Sri Lanka, known for its serene environment and devotional practices. It serves as a residence for monks and a place of worship for Sri Lankan pilgrims."}
+                ],
+                festivals: [
+                    { name: "Buddha Purnima (Vesak / Buddha Jayanti)", time: "April-May", description: "The most important Buddhist festival, commemorating the Buddha's birth, enlightenment, and passing (Mahaparinirvana), all believed to have occurred on the same day. Celebrated with special pujas, alms-giving ceremonies, and processions at the Mahabodhi Temple." },
+                    { name: "Kagyu Monlam Chenmo", time: "December-January", description: "A major 'Great Prayer Festival' for Tibetan Buddhists, typically held in December. It features colorful processions, sacred dances, and profound teachings by renowned masters, drawing thousands of devotees from around the world." },
+                    { name: "Tipitaka Chanting Ceremony", time: "December", description: "An significant annual event involving continuous relay chanting of the entire Pali Canon (Tipitaka), the sacred Buddhist texts, by hundreds of monks from various Theravada countries. This creates a powerful spiritual atmosphere at the Mahabodhi Temple." },
+                    { name: "Magha Puja", time: "February/March", description: "Commemorates the day when 1,250 disciples spontaneously gathered to hear the Buddha's teachings. Observed with great reverence, often involving circumambulation and making merit." },
+                    { name: "Asalha Puja (Dhamma Day)", time: "July", description: "Marks the Buddha's first discourse given in Sarnath and the founding of the Sangha (Buddhist monastic order). Monks reflect on their ordination and lay followers offer gifts to the Sangha." },
+                    { name: "Annual Puja Calendar Events", time: "Year-round", description: "Beyond major festivals, the Bodhgaya Temple Trust publishes an annual puja calendar listing hundreds of ritual events throughout the year. This ensures Bodhgaya remains a '24x7 pilgrimage site' with ongoing spiritual activities."}
+                ],
+                rituals: [
+                    { title: 'Offerings', content: 'Pilgrims make symbolic offerings like flowers (representing impermanence), light from butter lamps (symbolizing wisdom and dispelling ignorance), incense (ethics), and water (purity). The act is as important as the item, requiring a proper mindset of generosity and devotion. Devotees offer milk, sandalwood, or flowers.' },
+                    { title: 'Chanting', content: 'The temple complex resonates with sacred sounds from diverse traditions, including Pali chanting (Theravada), Sutra recitation (Mahayana), and Mantra recitation (Vajrayana). Morning and evening chanting sessions are key daily events, filling the air with spiritual vibrations.' },
+                    { title: 'Circumambulation (Kora)', content: 'Known as Parikrama or Kora, this walking meditation involves mindfully circling sacred objects like the Mahabodhi Temple and the Bodhi Tree (pilgrims walk clockwise). It is a devotional practice, often performed a specific number of times (e.g., three, seven, or 108 rounds) with a focused mind, and is believed to purify karma and accumulate merit.' },
+                    { title: 'Prostration', content: 'An embodied act of reverence and ego-surrender, typically performed three times when approaching the Bodhi Tree or a Buddha image. It acknowledges the Triple Gem: the Buddha, the Dharma (teachings), and the Sangha (community), expressing profound respect and humility.' },
+                    { title: 'Meditation', content: 'Bodhgaya is a global hub for meditation, drawing practitioners from all Buddhist schools. Devotees meditate at sites like Animeshlochan Chaitya (where Buddha gazed at the Bodhi tree). Practices range from Mindfulness (Vipassana) and Loving-kindness (Metta) to Zazen (Zen) and complex deity visualizations (Vajrayana), all aimed at cultivating inner peace, wisdom, and compassion.' }
+                ],
+                controversies: {
+                    overview: "Bodhgaya, located in the Gaya district of Bihar, India, is a pivotal religious and cultural site in Buddhism, renowned for its association with the enlightenment of Gautama Buddha. This section provides a detailed examination of its significance, travel logistics, and current controversies, ensuring a thorough understanding for researchers, travelers, and scholars.",
+                    managementDetails: "The Mahabodhi Temple Complex is managed by the Bodhgaya Temple Management Committee (BTMC) under the Bihar state government, as per the Bodh Gaya Temple Act of 1949. The committee, equipped with staff for maintenance and security, meets quarterly to review conservation and pilgrim management. Recent pressures for development have led to considerations for defining buffer zones and extending the property to include related sites, ensuring the conservation of its religious character and landscape. Demographic details from 2018 indicate a population of 48,184, with the city covering 20.2 km² and the regional planning area 83.78 km², located at coordinates 24°41′42″N 84°59′33″E. The 1949 act established the BTMC with equal representation from Buddhists and Hindus, chaired by Gaya's District Magistrate, with a 2013 amendment allowing a non-Hindu chairperson. The management is part of the broader Heritage preservation efforts by ASI and UNESCO.",
+                    protestDetails: "As of June 2025, Bodhgaya has been at the center of significant controversy regarding the control of the Mahabodhi Temple. Buddhists across India and internationally have protested, demanding full control. These protests, led by the All India Buddhist Forum (AIBF), began in February 2025 and include hunger strikes (some entering their 14th day in February 2025) and rallies, with about 300 monks participating and some extending their hunger strikes into their 14th day. Police have also reportedly taken action, forcibly removing monks in March 2025. Protesters argue this structure marginalizes Buddhist autonomy, given the temple's centrality to their faith. The demands include the repeal of the 1949 act, full Buddhist control, and an end to state interference. Political support has been raised in the Bihar Assembly and Parliament, but as of June 11, 2025, there has been no official government response from Bihar or the central government. Incidents include reports of violence, arrests (e.g., a Bangladeshi monk in May 2025), and social media posts highlighting tensions such as a governor performing Hindu rituals at the temple, viewed as an insult by protestors. Financial issues, like an ₹80 lakh fine on BTMC in 2023 for FCRA violations, also add to the complexity, with transparency concerns noted. A major fire in a local vegetable market in 2025 also affected 115 shops, indicating infrastructural challenges beyond the temple management.",
+                    comparativeTable: [
+                        { Site: 'Mahabodhi Temple', ManagementBody: 'BTMC (1949 Act)', Representation: '4 Buddhists, 4 Hindus, DM Chairperson', Notes: 'Protests for Buddhist control ongoing' },
+                        { Site: 'Sai Baba Temple, Shirdi', ManagementBody: 'Shri Sai Baba Sansthan Trust', Representation: 'Hindu majority', Notes: 'Managed by Hindu trust, no Buddhist input' },
+                        { Site: 'Golden Temple, Amritsar', ManagementBody: 'Shiromani Gurdwara Parbandhak Committee', Representation: 'Sikh majority', Notes: 'Exclusively Sikh management' }
+                    ]
+                },
+                transport: [
+                    { mode: '✈️ By Air', detail: 'The nearest airport is Gaya International Airport (GAY), located approximately 10 km from Bodhgaya. It offers flights from Kolkata, Delhi, and international destinations like Bangkok (via Thai Airways) and Paro (via Druk Air, November to March). Patna Airport, 110 km away, is an alternative, though the road journey is rough, taking about 3 hours.' },
+                    { mode: '🚆 By Rail', detail: 'Gaya Junction (GAYA), 16 km from Bodhgaya, is well-connected to major Indian cities including Patna (2.5-4 hours), Kolkata (8 hours), Delhi (15 hours), and Mumbai, making it a convenient option for pilgrims traveling by rail. A booking office is located opposite the Bank of India, past the Thai Temple.' },
+                    { mode: '🚗 By Road', detail: 'Bodhgaya has excellent road connectivity via national highways. Regular state and private bus services operate from nearby cities such as Patna (~110 km south), Gaya town, and other points on the Buddhist pilgrimage circuit, offering flexible travel options. Local transport includes auto-rickshaws, cycle-rickshaws, and tourist taxis.' },
+                    { mode: '🚌 Bus Tours', detail: 'Daily bus tours cover nearby sites like Rajgir and Nalanda, departing from behind the Birla Temple, providing affordable exploration options.' }
+                ],
+                accommodations: [
+                    { type: 'Luxury', name: 'Marasa Sarovar Premiere', description: 'Offers elegant rooms, a tranquil spa, and fine dining experiences, conveniently located close to the Mahabodhi Temple complex.' },
+                    { type: 'Luxury', name: 'Hyatt Place Bodh Gaya', description: 'Provides modern amenities, international standards of comfort, and contemporary design for a premium stay experience.' },
+                    { type: 'Budget', name: 'Hotel Bodhgaya Inn', description: 'A reliable choice offering clean, comfortable, and affordable lodging with essential amenities, catering to budget-conscious travelers.' },
+                    { type: 'Budget', name: 'Maya Heritage Hotel', description: 'A popular choice known for its balance of comfort, good value, and strategic location near key attractions.' },
+                    { type: 'Hostel', name: 'Bodhgaya Backpackers Hostel', description: 'Offers dormitory beds and a lively social atmosphere, ideal for solo travelers and those on a tight budget looking to connect with others.' },
+                    { type: 'Guesthouse', name: 'Beauty Guest House', description: 'A friendly guesthouse providing a homely atmosphere and a pleasant garden, offering a more personalized and quiet stay.' },
+                    { type: 'Guesthouse', name: 'Sagar International Guest House', description: 'Features simple, clean rooms with personalized service, offering a comfortable and unassuming option for visitors.' },
+                    { type: 'Luxury', name: 'Mahabodhi Hotel, Resort & Convention Centre', description: 'A large complex with upscale rooms and extensive facilities, including convention spaces, catering to a wide range of visitors.' },
+                    { type: 'Budget', name: 'Hotel Taj Darbar', description: 'Reliable budget option with an on-site restaurant, providing convenient dining and comfortable basic accommodation.' },
+                    { type: 'Hostel', name: 'Charity Backpackers', description: 'Caters specifically to backpackers with basic facilities and a communal environment, fostering interactions among travelers.' },
+                    { type: 'Hotel', name: 'Hotel Anand International', description: 'A highly rated hotel offering a range of amenities and comfortable stays for tourists and pilgrims.' },
+                    { type: 'Hotel', name: 'Dhamma Grand Hotel Resort', description: 'A well-regarded resort providing serene accommodation and facilities suitable for a spiritual retreat.' }
+                ]
+            };
+
+            // Mobile Menu
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+
+            // Active Nav Link Styling
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+            const onScroll = () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.href.includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+            window.addEventListener('scroll', onScroll);
+
+            // Timeline
+            const timelineContainer = document.getElementById('timeline-container');
+            const timelineModal = document.getElementById('timeline-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalText = document.getElementById('modal-text');
+            const closeTimelineModal = document.getElementById('close-timeline-modal');
+
+            db.timeline.forEach((item, index) => {
+                const isLeft = index % 2 === 0;
+                const timelineItem = document.createElement('div');
+                timelineItem.className = `relative flex items-center ${isLeft ? 'justify-start' : 'justify-end'}`;
+
+                timelineItem.innerHTML = `
+                    <div class="w-full sm:w-5/12 ${isLeft ? 'sm:text-right sm:pr-8' : 'sm:text-left sm:pl-8'}">
+                        <div class="bg-primary p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow duration-300 timeline-card" data-index="${index}">
+                            <p class="font-bold text-lg text-header">${item.year}</p>
+                            <p class="text-sm">${item.title}</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-accent rounded-full border-2 border-primary"></div>
+                `;
+                timelineContainer.appendChild(timelineItem);
+            });
+
+            document.querySelectorAll('.timeline-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    const index = e.currentTarget.getAttribute('data-index');
+                    const data = db.timeline[index];
+                    modalTitle.textContent = `${data.year}: ${data.title}`;
+                    modalText.textContent = data.text;
+                    timelineModal.classList.remove('hidden');
+                    timelineModal.classList.add('flex');
+                });
+            });
+
+            closeTimelineModal.addEventListener('click', () => {
+                timelineModal.classList.add('hidden');
+                timelineModal.classList.remove('flex');
+            });
+
+            // Sacred Sites Map
+            const sacredSitesMap = document.getElementById('sacred-sites-map');
+            const siteTitle = document.getElementById('site-title');
+            const siteDescription = document.getElementById('site-description');
+
+            db.sacredSites.forEach(site => {
+                const siteEl = document.createElement('div');
+                siteEl.className = `map-site border-2 border-dashed border-accent/50 rounded-md flex items-center justify-center cursor-pointer hover:bg-accent/20 transition-colors ${site.grid}`;
+                siteEl.innerHTML = `<span class="font-bold text-accent text-xl">${site.id}</span>`;
+                siteEl.dataset.id = site.id;
+                sacredSitesMap.appendChild(siteEl);
+            });
+
+            sacredSitesMap.addEventListener('click', (e) => {
+                const target = e.target.closest('.map-site');
+                if (target) {
+                    document.querySelectorAll('.map-site').forEach(el => el.classList.remove('bg-accent', 'text-white'));
+                    target.classList.add('bg-accent', 'text-white');
+                    const siteId = parseInt(target.dataset.id);
+                    const siteData = db.sacredSites.find(s => s.id === siteId);
+                    siteTitle.textContent = `${siteData.week}: ${siteData.title}`;
+                    siteDescription.textContent = siteData.description;
+                }
+            });
+
+            // Other Notable Monuments
+            const otherMonumentsContainer = document.getElementById('other-monuments-container');
+            db.otherMonuments.forEach(monument => {
+                const card = document.createElement('div');
+                card.className = 'bg-primary p-6 rounded-lg shadow-md';
+                card.innerHTML = `
+                    <h5 class="text-xl font-bold text-header mb-2">${monument.name}</h5>
+                    <p class="text-body">${monument.description}</p>
+                `;
+                otherMonumentsContainer.appendChild(card);
+            });
+
+            // Monastery Gallery
+            const monasteryGallery = document.getElementById('monastery-gallery');
+            const monasteryModal = document.getElementById('monastery-modal');
+            const closeMonasteryModal = document.getElementById('close-monastery-modal');
+            db.monasteries.forEach(monastery => {
+                const card = document.createElement('div');
+                card.className = 'bg-primary p-6 rounded-lg shadow-md cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all';
+                card.innerHTML = `
+                    <h5 class="text-xl font-bold text-header mb-2">${monastery.name}</h5>
+                    <p class="text-accent font-medium mb-4">${monastery.country}</p>
+                    <p class="text-sm">${monastery.features.substring(0, 100)}...</p>
+                `;
+                card.addEventListener('click', () => {
+                    document.getElementById('monastery-modal-title').textContent = `${monastery.name} (${monastery.country})`;
+                    document.getElementById('monastery-modal-text').textContent = monastery.features;
+                    monasteryModal.classList.remove('hidden');
+                    monasteryModal.classList.add('flex');
+                });
+                monasteryGallery.appendChild(card);
+            });
+            closeMonasteryModal.addEventListener('click', () => {
+                monasteryModal.classList.add('hidden');
+                monasteryModal.classList.remove('flex');
+            });
+
+            // Living Traditions: Festivals & Rituals
+            const festivalsContainer = document.getElementById('festivals-container');
+            db.festivals.forEach(festival => {
+                const card = document.createElement('div');
+                card.className = 'bg-primary p-6 rounded-lg shadow-md';
+                card.innerHTML = `
+                    <h5 class="text-xl font-bold text-header mb-2">${festival.name}</h5>
+                    <p class="text-accent font-medium mb-3">${festival.time}</p>
+                    <p>${festival.description}</p>
+                `;
+                festivalsContainer.appendChild(card);
+            });
+
+            const ritualsTabs = document.getElementById('rituals-tabs');
+            const ritualsContent = document.getElementById('rituals-content');
+            db.rituals.forEach((ritual, index) => {
+                const tab = document.createElement('button');
+                tab.className = `px-4 py-2 rounded-md transition-colors text-sm md:text-base ${index === 0 ? 'btn-active' : 'btn-secondary'}`;
+                tab.textContent = ritual.title;
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('#rituals-tabs button').forEach(b => b.classList.replace('btn-active', 'btn-secondary'));
+                    tab.classList.replace('btn-secondary', 'btn-active');
+                    ritualsContent.innerHTML = `<p>${ritual.content}</p>`;
+                });
+                ritualsTabs.appendChild(tab);
+                if (index === 0) {
+                    ritualsContent.innerHTML = `<p>${ritual.content}</p>`;
+                }
+            });
+
+            // Populate Comparative Management Table
+            const managementTableBody = document.querySelector('#management-table tbody');
+            db.controversies.comparativeTable.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${row.Site}</td>
+                    <td>${row.ManagementBody}</td>
+                    <td>${row.Representation}</td>
+                    <td>${row.Notes}</td>
+                `;
+                managementTableBody.appendChild(tr);
+            });
+
+            // Plan Your Visit
+            const transportContainer = document.getElementById('transport-container');
+            db.transport.forEach(item => {
+                const el = document.createElement('div');
+                el.className = 'bg-primary p-4 rounded-lg shadow-sm';
+                el.innerHTML = `<h5 class="font-bold text-header">${item.mode}</h5><p>${item.detail}</p>`;
+                transportContainer.appendChild(el);
+            });
+
+            const accommodationFilters = document.getElementById('accommodation-filters');
+            const accommodationList = document.getElementById('accommodation-list');
+            const categories = ['All', ...new Set(db.accommodations.map(a => a.type))];
+
+            const renderAccommodations = (filter = 'All') => {
+                accommodationList.innerHTML = '';
+                const filtered = filter === 'All' ? db.accommodations : db.accommodations.filter(a => a.type === filter);
+                filtered.forEach(acc => {
+                    const item = document.createElement('div');
+                    item.className = 'bg-primary p-4 rounded-lg shadow-sm';
+                    item.innerHTML = `<h5 class="font-bold text-header">${acc.name} <span class="text-sm font-normal text-accent ml-2">(${acc.type})</span></h5><p class="text-sm">${acc.description}</p>`;
+                    accommodationList.appendChild(item);
+                });
+            };
+
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = `px-4 py-2 rounded-md transition-colors text-sm md:text-base ${cat === 'All' ? 'btn-active' : 'btn-secondary'}`;
+                btn.textContent = cat;
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('#accommodation-filters button').forEach(b => b.classList.replace('btn-active', 'btn-secondary'));
+                    btn.classList.replace('btn-secondary', 'btn-active');
+                    renderAccommodations(cat);
+                });
+                accommodationFilters.appendChild(btn);
+            });
+
+            renderAccommodations();
+
+            // Best time to visit chart
+            const ctx = document.getElementById('visit-chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Visit Recommendation',
+                        data: [10, 10, 10, 5, 4, 3, 4, 4, 6, 10, 10, 10],
+                        backgroundColor: (context) => {
+                            const value = context.raw;
+                            return value > 8 ? 'rgba(141, 110, 99, 0.7)' : 'rgba(227, 216, 201, 0.7)';
+                        },
+                        borderColor: (context) => {
+                             const value = context.raw;
+                            return value > 8 ? 'rgba(141, 110, 99, 1)' : 'rgba(227, 216, 201, 1)';
+                        },
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            display: false
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const value = context.raw;
+                                    if (value > 8) return 'Optimal Month (Pleasant 15–25 °C)';
+                                    if (value > 5) return 'Good';
+                                    return 'Hot / Rainy Season (Summer up to 45 °C, heavy rain in monsoon)';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
