@@ -9,25 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Sacred Earth -->
-    <!-- Application Structure Plan: The application uses a thematic, single-page dashboard structure with a sticky navigation bar for easy access to key sections: 'The Enlightenment' (History, religious significance, archaeological context), 'Sacred Sites' (Mahabodhi Temple Complex & other major monuments, including architecture and archaeology), 'Global Village' (International Monasteries), 'Living Traditions' (Festivals/Rituals), 'Current Controversies' (new section for management issues and protests), 'Plan Your Visit' (Travel, Accommodation, Safety, and a 3-Day Itinerary), and 'Contact' (new section for hospital and doctor information). This non-linear structure allows users to jump to topics of interest, encouraging non-sequential discovery. Key interactions include a clickable timeline for history with detailed modals, a visual CSS-grid map of the Mahabodhi complex, descriptive cards for other monuments, a filterable gallery for monasteries, interactive cards for festivals, tabbed content for rituals, and practical visitor information with filters and a suggested itinerary. This design prioritizes user engagement and intuitive data synthesis, offering a comprehensive and accessible exploration of Bodhgaya beyond a linear report, including its modern challenges and important local contacts. -->
-    <!-- Visualization & Content Choices:
-        - History: Report's historical narrative, religious significance, and archaeological insights -> Goal: Show change over time and key developments -> Viz/Method: Interactive HTML/CSS Timeline with detailed modal for each event -> Interaction: Click on date reveals in-depth text, including archaeological findings, name evolution, Bodhgaya's architectural legacy, and its status as one of Buddhism's "four great" sites -> Justification: Makes historical progression digestible and engaging, providing rich context from ancient origins to modern status.
-        - Sacred Sites (Mahabodhi Complex): Report's description of the 7 weeks, core features, Vajrasana, and UNESCO inscription -> Goal: Organize spatial information for spiritual journey and detail core features -> Viz/Method: Simplified diagram of temple layout using CSS Grid, with highlighted areas for each week; descriptive text for core features -> Interaction: Clicking a grid area displays info about that specific sacred spot; static text for core features -> Justification: Provides crucial spatial context of the Buddha's post-enlightenment meditation path, enhancing understanding of the pilgrimage, and detailing the main temple's significance and influence.
-        - Sacred Sites (Other Monuments): Report's details on 80-foot Buddha, Peace Pagoda, Ashokan pillar fragments -> Goal: Inform about significant modern and ancient structures outside the core complex -> Viz/Method: Descriptive HTML cards within the same section -> Interaction: Static information display -> Justification: Groups related "site" information while distinguishing between the ancient complex and newer additions.
-        - Architecture & Archaeology: Report's details on Gupta style, restoration, excavations, museum, management, and conservation -> Goal: Provide deeper insight into the temple's construction, preservation, and historical uncovering -> Viz/Method: Dedicated text block within the Sacred Sites section, including museum and governance details -> Interaction: Static display -> Justification: Consolidates crucial information about the physical integrity and historical study of the site, supporting the UNESCO status and showing the site's rich archaeological layers.
-        - Monasteries: Report's list of international monasteries -> Goal: Showcase cultural diversity and global presence -> Viz/Method: Interactive card gallery -> Interaction: Clicking a card opens a modal with expanded details -> Justification: Visually appealing and allows for self-paced exploration of global influences, emphasizing "over 50 international viharas" and continuous worship, including mentions of architectural replicas.
-        - Festivals: Report's list of festivals, including new ones -> Goal: Inform about key annual events -> Viz/Method: A series of interactive cards -> Interaction: Click reveals details -> Justification: More dynamic and scannable than a static table, providing event context for celebrations like Vesak, Kagyu Monlam Chenmo, Magha Puja, and Asalha Puja, reflecting the continuous spiritual life.
-        - Rituals: Report's description of daily practices -> Goal: Explain spiritual activities -> Viz/Method: Tabbed content interface -> Interaction: Clicking a tab switches display to show detailed descriptions of each ritual -> Justification: Organizes detailed qualitative information concisely for daily spiritual life, including details on Circumambulation (Kora), meditation, and offerings.
-        - Current Controversies: New content on temple management and protests -> Goal: Inform users about ongoing administrative issues and historical context -> Viz/Method: Dedicated section with narrative text, including protest details, demands, incidents, and a comparative table of management structures -> Interaction: Static display with organized information and comparative data -> Justification: Provides crucial, up-to-date context on the site's governance, acknowledging its complex religious and administrative landscape.
-        - Transport: Report's travel info -> Goal: Aid in travel planning -> Viz/Method: Descriptive HTML cards -> Interaction: Static display of key travel modes (air, rail, road) with updated distances and general operating hours -> Justification: Provides quick, essential logistical information for reaching Bodhgaya.
-        - Accommodation: Report's range of lodging -> Goal: Help visitors find suitable stays -> Viz/Method: A filterable list of cards -> Interaction: Buttons filter accommodation by type (Luxury, Budget, Hostel, Guesthouse) -> Justification: Provides practical, user-driven utility, allowing users to find relevant options quickly and advising early booking during peak seasons.
-        - Best Time to Visit: Report's recommendation and climate data -> Goal: Provide quick visual guidance on optimal visiting period -> Viz/Method: Bar Chart (Chart.js) -> Interaction: Hover to see specific month recommendations -> Justification: Visualizes the optimal visiting window more effectively than text alone, making climate considerations clear, especially avoiding hot summers and rainy monsoons.
-        - Safety & Etiquette: Report's practical advice -> Goal: Inform visitors on cultural norms and safety -> Viz/Method: Concise text block -> Interaction: Static display -> Justification: Essential practical advice for a smooth, respectful, and safe visit, covering dress code, security (including mention of 2013 bombings), health, and mobile/camera rules.
-        - Suggested 3-Day Itinerary: New content -> Goal: Provide structured guidance for a visit -> Viz/Method: Simple HTML cards for each day's activities -> Interaction: Static display -> Justification: Offers practical inspiration and a framework for visitors to plan their experience, ending with an overall summary of Bodhgaya's significance.
-        - Contact Information: New content for local contacts -> Goal: Provide essential contact details for local services -> Viz/Method: Dedicated section with organized text blocks for each entity (hospital, banquet hall, doctor) -> Interaction: Static display -> Justification: Crucial practical information for visitors' convenience, adding value to the guide.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -114,7 +95,6 @@
 </head>
 <body class="bg-primary text-body">
 
-    <!-- Google Translate Element -->
     <div id="google_translate_element_container" class="pt-2 pb-1 px-4 text-sm bg-secondary text-right">
         <div id="google_translate_element"></div>
     </div>
@@ -129,7 +109,6 @@
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- Header & Navigation -->
     <header class="sticky top-0 z-50 bg-primary/80 backdrop-blur-sm shadow-md">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <h1 class="text-xl md:text-2xl font-bold text-header">Bodhgaya</h1>
@@ -159,26 +138,30 @@
 
     <main class="container mx-auto px-6 py-8">
 
-        <!-- Hero Section -->
         <section class="text-center py-12">
             <h2 class="text-4xl md:text-5xl font-extrabold text-header mb-4">Explore Bodhgaya</h2>
             <p class="text-xl text-accent mb-6">The Sacred Heart of Buddhist Enlightenment</p>
-            <p class="max-w-3xl mx-auto text-lg">Bodhgaya, in Bihar, India, is a pivotal religious and historical site for Buddhists worldwide. It is renowned as the place where Gautama Buddha attained enlightenment under the Bodhi Tree in the 6th century BCE. The Mahabodhi Temple, a UNESCO World Heritage Site since 2002, is central to this legacy and attracts pilgrims and tourists globally. This interactive guide invites you to explore its profound history, architectural marvels, living traditions, and current issues surrounding its management, ensuring a thorough understanding for researchers, travelers, and scholars. Bodhgaya stands as the beating heart of Buddhism—a seamless blend of living faith, ancient architecture, and global cultural heritage.</p>
+            <p class="max-w-3xl mx-auto text-lg mb-6">Bodhgaya, in Bihar, India, is a pivotal religious and historical site for Buddhists worldwide. It is renowned as the place where Gautama Buddha attained enlightenment under the Bodhi Tree in the 6th century BCE. The Mahabodhi Temple, a UNESCO World Heritage Site since 2002, is central to this legacy and attracts pilgrims and tourists globally. This interactive guide invites you to explore its profound history, architectural marvels, living traditions, and current issues surrounding its management, ensuring a thorough understanding for researchers, travelers, and scholars. Bodhgaya stands as the beating heart of Buddhism—a seamless blend of living faith, ancient architecture, and global cultural heritage.</p>
+
+            <div class="flex justify-center my-6">
+                <audio controls class="w-full max-w-xl p-2 rounded-lg bg-secondary shadow-md">
+                    <source src="https://github.com/vishalhospitalrajkot/Bodhgaya-/raw/75baaf00c47eb6cc49dd6a2b3e3dd3478b6c67b6/Bodhgaya_%20Where%20One%20Tree%20Transformed%20the%20World.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">Listen to an audio overview of Bodhgaya.</p>
+
         </section>
 
-        <!-- The Enlightenment: History -->
         <section id="enlightenment" class="py-16 bg-secondary rounded-xl">
             <div class="text-center mb-12 px-4">
                 <h3 class="text-3xl font-bold text-header mb-3">The Path to Enlightenment & Historical Roots</h3>
-                <p class="max-w-3xl mx-auto">The history of Bodhgaya is a story of spiritual awakening, imperial patronage, and remarkable resilience. Known in antiquity as Uruvela, Sambodhi, Vajrasana, or Mahabodhi, it has been venerated since at least the 3rd century BCE, when Emperor Ashoka built its first shrine. This interactive timeline highlights the pivotal moments that shaped the world's most sacred Buddhist site, including significant archaeological discoveries and its evolution into a global pilgrimage center, as one of Buddhism’s “four great” sites (along with Lumbini, Sarnath, and Kushinagar). Click on any event to learn more about its profound significance.</p>
+                <p class="max-w-3xl mx-auto">The history of Bodhgaya is a story of spiritual awakening, imperial patronage, and remarkable resilience. Known in antiquity as Uruvela, Sambodhi, Vajrasana, or Mahabodhi, it has been venerated since at least the 3rd century BCE, when Emperor Ashoka built its first shrine. This interactive timeline highlights the pivotal moments that shaped the world's most sacred Buddhist site, including significant archaeological discoveries and its evolution into a global pilgrimage center, as one of Buddhism’s “four great” sites (alongside Lumbini, Sarnath, and Kushinagar). Click on any event to learn more about its profound significance.</p>
             </div>
             <div class="relative w-full px-4">
-                <!-- Timeline Line -->
                 <div class="absolute left-1/2 h-full w-0.5 bg-gray-300 transform -translate-x-1/2"></div>
-                <!-- Timeline Items Container -->
                 <div id="timeline-container" class="space-y-12"></div>
             </div>
-            <!-- Timeline Detail Modal -->
             <div id="timeline-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
                 <div class="bg-primary rounded-lg shadow-xl max-w-2xl w-full p-6 relative max-h-[90vh] overflow-y-auto">
                     <button id="close-timeline-modal" class="absolute top-3 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
@@ -188,30 +171,25 @@
             </div>
         </section>
 
-        <!-- Sacred Sites: Mahabodhi Temple Complex -->
         <section id="sites" class="py-16">
             <div class="text-center mb-12 px-4">
                 <h3 class="text-3xl font-bold text-header mb-3">The Sacred Grounds of Bodhgaya</h3>
                 <p class="max-w-3xl mx-auto">At the heart of Bodhgaya lies the Mahabodhi Temple Complex, a UNESCO World Heritage site and a sacred landscape that maps the Buddha's journey to and through enlightenment. The complex is not just a single temple but a collection of sites commemorating the seven weeks the Buddha spent in meditation after his awakening. Its 55m central temple is surrounded by four smaller towers, ancient railings, the sacred Bodhi Tree, the Vajrasana (“Diamond Throne”), and several votive stupas. This section guides you through the historic Mahabodhi complex and highlights other significant modern monuments within Bodhgaya. Click on a numbered area of the map to reveal its story, and explore cards below for other important sites.</p>
             </div>
             <div class="lg:flex lg:space-x-8 mb-12">
-                <!-- Interactive Map -->
                 <div id="sacred-sites-map" class="lg:w-1/2 grid grid-cols-3 grid-rows-3 gap-2 p-4 bg-secondary rounded-lg mb-8 lg:mb-0 h-96">
                 </div>
-                <!-- Information Panel -->
                 <div class="lg:w-1/2 p-6 bg-secondary rounded-lg flex flex-col justify-center">
                     <h4 id="site-title" class="text-2xl font-bold text-header mb-3">Welcome to the Sacred Grounds</h4>
                     <p id="site-description" class="text-body">Click on a highlighted area of the map to learn about the sacred sites within the Mahabodhi Temple Complex, including the Bodhi Tree, the Diamond Throne, and the locations commemorating the seven weeks the Buddha spent in meditation after attaining enlightenment.</p>
                 </div>
             </div>
 
-            <!-- Other Notable Monuments -->
             <div class="px-4 mb-12">
                 <h4 class="text-2xl font-semibold text-header text-center mb-6">Key Monuments & Features Beyond the Mahabodhi Temple</h4>
                 <div id="other-monuments-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
             </div>
 
-            <!-- Architecture & Archaeology -->
             <div class="px-4 p-6 bg-secondary rounded-xl">
                 <h4 class="text-2xl font-semibold text-header mb-4 text-center">Architecture & Archaeology</h4>
                 <p class="max-w-3xl mx-auto mb-4">The Mahabodhi Temple, with its red-brick and layered pyramidical spire, exemplifies Gupta-period aesthetics and is among India's earliest brick-built Buddhist shrines, deeply influential on later temple architecture. It houses a 1,700-year-old gilded Buddha statue in *bhumisparsha mudra* (earth-touching pose). Surrounding shrines commemorate Buddha's post-enlightenment weeks. The site suffered decay during the 12th–13th centuries after invasions, leading to restoration efforts by King Kyanzittha of Burma (1100 CE), later Burmese missions, and British archaeologist Alexander Cunningham (1870s).</p>
@@ -219,15 +197,13 @@
             </div>
         </section>
 
-        <!-- Global Village: International Monasteries -->
         <section id="global" class="py-16 bg-secondary rounded-xl">
             <div class="text-center mb-12 px-4">
                 <h3 class="text-3xl font-bold text-header mb-3">A Global Village of Faith</h3>
                 <p class="max-w-3xl mx-auto">Bodhgaya's spiritual magnetism has drawn communities from across the world, creating a unique microcosm of global Buddhism. More than 40 (or over 50 by some accounts) international viharas (monasteries) from nations like Tibet, Thailand, Sri Lanka, Japan, China, Myanmar, Bhutan, and Cambodia line the surrounding streets, each reflecting its own distinct architectural and cultural heritage. Structures like Thailand's Wat Chet Yot and Nepal's Mahabuddha Temple imitate the Mahabodhi Temple's design, showcasing its global influence. This gallery showcases the rich diversity of this international spiritual community. Click on any monastery to learn about its unique features.</p>
             </div>
             <div id="monastery-gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4"></div>
-             <!-- Monastery Detail Modal -->
-            <div id="monastery-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+             <div id="monastery-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
                 <div class="bg-primary rounded-lg shadow-xl max-w-2xl w-full p-6 relative max-h-[90vh] overflow-y-auto">
                     <button id="close-monastery-modal" class="absolute top-3 right-4 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
                     <h4 id="monastery-modal-title" class="text-2xl font-bold text-header mb-4"></h4>
@@ -236,18 +212,15 @@
             </div>
         </section>
 
-        <!-- Living Traditions: Festivals & Rituals -->
         <section id="traditions" class="py-16">
             <div class="text-center mb-12 px-4">
                 <h3 class="text-3xl font-bold text-header mb-3">Living Traditions & Spiritual Activities</h3>
                 <p class="max-w-3xl mx-auto">Bodhgaya is more than a historical site; it's a vibrant center of living faith. Its spiritual energy is renewed daily through continuous worship, chanting, meditation classes, and monk pujas that occur around the clock. It is also celebrated annually in colorful festivals that draw devotees from around the globe. Explore the major celebrations and daily practices that keep the Buddha's teachings alive, making Bodhgaya a 24x7 pilgrimage site with ongoing events.</p>
             </div>
-            <!-- Festivals -->
             <div class="mb-12">
                  <h4 class="text-2xl font-semibold text-header text-center mb-8">Annual Festivals</h4>
                  <div id="festivals-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4"></div>
             </div>
-            <!-- Rituals -->
             <div>
                  <h4 class="text-2xl font-semibold text-header text-center mb-8">Daily Rituals & Practices</h4>
                  <div class="max-w-4xl mx-auto">
@@ -257,7 +230,6 @@
             </div>
         </section>
 
-        <!-- Current Controversies -->
         <section id="controversies" class="py-16 bg-secondary rounded-xl">
             <div class="text-center mb-12 px-4">
                 <h3 class="text-3xl font-bold text-header mb-3">Current Controversies & Management</h3>
@@ -286,14 +258,12 @@
             </div>
         </section>
 
-        <!-- Plan Your Visit -->
         <section id="visit" class="py-16">
              <div class="text-center mb-12 px-4">
                 <h3 class="text-3xl font-bold text-header mb-3">Plan Your Pilgrimage to Bodhgaya</h3>
                 <p class="max-w-3xl mx-auto">A journey to Bodhgaya is a profound experience for pilgrims and tourists alike. To help you plan your visit, this section provides practical information on the best time to travel, how to get here, where to stay, temple rules, etiquette, and a suggested itinerary. Modest dress and removal of shoes inside temple precincts are expected, and the site is generally safe for visitors. Temples are generally open from 6 AM to sunset, closing noon to 2 PM daily.</p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 px-4">
-                <!-- Left Column: Chart & Transport -->
                 <div class="space-y-12">
                     <div>
                         <h4 class="text-2xl font-semibold text-header text-center mb-4">Best Time to Visit</h4>
@@ -311,7 +281,6 @@
                         <p class="text-body">Bodhgaya offers a variety of cuisines, primarily vegetarian, reflecting its religious character. Options include Tibetan, Italian, Thai, and traditional Bihari dishes like Litti-chokha and sweets like Tilkut and Kesariya peda. Non-vegetarian food and alcohol are limited, aligning with its spiritual ambiance.</p>
                     </div>
                 </div>
-                <!-- Right Column: Accommodation & Safety -->
                 <div>
                     <h4 class="text-2xl font-semibold text-header text-center mb-6">Where to Stay</h4>
                     <div id="accommodation-filters" class="flex flex-wrap justify-center gap-3 mb-6"></div>
@@ -324,7 +293,6 @@
                 </div>
             </div>
 
-            <!-- Suggested Itinerary -->
             <div class="px-4 mt-16">
                 <h4 class="text-3xl font-bold text-header text-center mb-8">Suggested 3-Day Itinerary</h4>
                 <p class="max-w-3xl mx-auto text-center mb-8">Whether you come for pilgrimage, history, or cultural immersion, this suggested itinerary offers a framework for a profound journey—spiritual, architectural, and ever-living in Buddhist tradition. As Lama Zopa Rinpoche noted, missing a day of practice here is "worse than losing skies filled with wish-granting jewels".</p>
@@ -351,7 +319,6 @@
             </div>
         </section>
 
-        <!-- Contact Information -->
         <section id="contact" class="py-16 bg-primary rounded-xl">
             <div class="text-center mb-12 px-4">
                 <h3 class="text-3xl font-bold text-header mb-3">Contact Information</h3>
